@@ -5,7 +5,18 @@ class TrailerExplorer extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.state = { current: 0 };
+		this.state = {
+			current: 0
+		};
+	}
+
+	componentDidUpdate( prevProps, prevState, snapshot ) {
+		if ( prevProps.trailers !== this.props.trailers ) {
+			// Reset the position to the beginning when changing categories.
+			this.setState( { current: 0 } );
+
+			// this causes unnecessary re-render, but seems better than derivedstatefromprops() and caching previous value in state
+		}
 	}
 
 	newTrailer = ( direction ) => {

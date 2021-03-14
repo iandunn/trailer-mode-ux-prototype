@@ -1,16 +1,16 @@
 # Trailer Mode UX Prototype
 
-a prototype UX for netflix/apple tv/etc -
+A prototype for a better UX while exploring content on video streaming services like Netflix and Apple TV.
 
-screenshot
+_[ todo: screenshot ]_
 
-instead of scrolling through horizontal sliders of thumbnails,
-have user click a category of content, and then start playing a list of trailers, 
-and only have to click 1 button to add the show to your watch queue,
-or to move to the next trailer. can hardcode list of trailers on youtube as sample content.
+Instead of scrolling through horizontal sliders of thumbnails, and going through lots of clicks to open a , or auto-playing on mouseover (which has lots of false positives and annonyances)
 
-mentino the psychological concept of suficificers vs maximizers.
+user clicks a category of content, and then start playing a list of trailers
+but make it quick and easy to skip to next if don't like it
+and only have to click 1 button to add the show to your watch queue
+
+able to judge based on the actual content of video rather than the thumbnail
+
+psychology concept of suficificers vs maximizers.
 this is better for both, but MUCH better for maximizers
-
-
-

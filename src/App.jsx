@@ -1,16 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TrailerExplorer from './Trailer-Explorer';
 import './App.css';
 
-/*
-
-show it in sidebar and it updates real tiem as add content,
-can also x to remove. can click on ilnk to jump back to the title of that entry
-
- */
-
 
 function App() {
+	const [ currentCategory, setCurrentCategory ] = useState( 'drama' );
+
 	const trailers = {
 		drama: [
 			{
@@ -30,20 +25,37 @@ function App() {
 		],
 
 		action: [
-			// the expanse
-			// see
-			// star trek discovery
+			{
+				name: 'The Expanse',
+				trailerId: '8X5gXIQmY-E',
+			},
+
+			{
+				name: 'See',
+				trailerId: '7Rg0y7NT1gU',
+			},
+
+			{
+				name: 'Star Trek Discovery',
+				trailerId: 'hC7IMj7WFyE',
+			},
 		],
 
 		documentaries: [
 			{
 				name: 'Long Way Up',
-				trailerId: 'url/to/trailer.mov',
+				trailerId: '611fw81BN98',
 			},
 
-			// boys state
+			{
+				name: "Boy's State",
+				trailerId: 'ViiYJZqGC5w',
+			},
 
-			// tiny world
+			{
+				name: 'Tiny World',
+				trailerId: 'oGNb4d6UdeU',
+			},
 		]
 	};
 
@@ -56,7 +68,7 @@ function App() {
 					Trailer Mode UX Prototype
 				</h1>
 
-				<p>short desc, see readme for more</p>
+				<p>A better UX while exploring content on video streaming services like Netflix and Apple TV.</p>
 			</header>
 
 			<nav className="category-list">
@@ -66,55 +78,48 @@ function App() {
 
 				<ul>
 					<li>
-						<button data-category="drama">
+						<button
+							disabled={ 'drama' === currentCategory }
+							onClick={ () => setCurrentCategory( 'drama' ) }
+						>
 							Drama
 						</button>
 					</li>
 
 					<li>
-						<button data-category="action">
+						<button
+							disabled={ 'action' === currentCategory }
+							onClick={ () => setCurrentCategory( 'action' ) }
+						>
 							Action
 						</button>
 					</li>
 
 
 					<li>
-						<button data-category="documentaries">
+						<button
+							disabled={ 'documentaries' === currentCategory }
+							onClick={ () => setCurrentCategory( 'documentaries' ) }
+						>
 							Documentaries
-						</button>
-					</li>
-
-					<li>
-						<button disabled>
-							Lorum
-						</button>
-					</li>
-
-					<li>
-						<button disabled>
-							Ipsum
-						</button>
-					</li>
-
-					<li>
-						<button disabled>
-							Eleifend Vestibulum
-						</button>
-					</li>
-
-					<li>
-						<button disabled>
-							Attortor
 						</button>
 					</li>
 				</ul>
 			</nav>
 
 			<TrailerExplorer
-				trailers={ trailers.drama }
+				trailers={ trailers[ currentCategory ] }
 			/>
 
 			<aside className="watch-later-list">
+				{/*
+
+				updates real tiem as add content,
+				can also x to remove.
+				can click on ilnk to jump back to the title of that entry? or to it's title page?
+
+				 */}
+
 				<h3>Watch Later</h3>
 
 				<ul>
