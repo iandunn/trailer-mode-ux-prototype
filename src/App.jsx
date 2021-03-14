@@ -1,63 +1,11 @@
 import React, { useState } from 'react';
 import TrailerExplorer from './Trailer-Explorer';
 import './App.css';
+import trailers from './trailers.json';
 
 
 function App() {
 	const [ currentCategory, setCurrentCategory ] = useState( 'drama' );
-
-	const trailers = {
-		drama: [
-			{
-				name: 'Cherry',
-				trailerId: 'H5bH6O0bErk',
-			},
-
-			{
-				name: 'Hala',
-				trailerId: 'QBAkWPB_PVw',
-			},
-
-			{
-				name: 'The Banker',
-				trailerId: 'J_-nk9-sMus',
-			},
-		],
-
-		action: [
-			{
-				name: 'The Expanse',
-				trailerId: '8X5gXIQmY-E',
-			},
-
-			{
-				name: 'See',
-				trailerId: '7Rg0y7NT1gU',
-			},
-
-			{
-				name: 'Star Trek Discovery',
-				trailerId: 'hC7IMj7WFyE',
-			},
-		],
-
-		documentaries: [
-			{
-				name: 'Long Way Up',
-				trailerId: '611fw81BN98',
-			},
-
-			{
-				name: "Boy's State",
-				trailerId: 'ViiYJZqGC5w',
-			},
-
-			{
-				name: 'Tiny World',
-				trailerId: 'oGNb4d6UdeU',
-			},
-		]
-	};
 
 	return (
 		<div className="App">
