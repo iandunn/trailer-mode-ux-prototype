@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import TrailerExplorer from './Trailer-Explorer';
 import './App.css';
 
 /*
@@ -10,23 +11,22 @@ can also x to remove. can click on ilnk to jump back to the title of that entry
 
 
 function App() {
-	const [ watchLater, setwatchLater ] = useState( [] );
-
 	const trailers = {
 		drama: [
 			{
-				id: 1,
 				name: 'Cherry',
-				trailerId: 'Nt_wyydppg8',
+				trailerId: 'H5bH6O0bErk',
 			},
 
 			{
-				id: 2,
 				name: 'Hala',
-				trailer: 'url/to/trailer.mov',
+				trailerId: 'QBAkWPB_PVw',
 			},
 
-			// the banker
+			{
+				name: 'The Banker',
+				trailerId: 'J_-nk9-sMus',
+			},
 		],
 
 		action: [
@@ -37,9 +37,8 @@ function App() {
 
 		documentaries: [
 			{
-				id: 2,
 				name: 'Long Way Up',
-				trailer: 'url/to/trailer.mov',
+				trailerId: 'url/to/trailer.mov',
 			},
 
 			// boys state
@@ -80,7 +79,7 @@ function App() {
 
 
 					<li>
-						<button>
+						<button data-category="documentaries">
 							Documentaries
 						</button>
 					</li>
@@ -111,24 +110,9 @@ function App() {
 				</ul>
 			</nav>
 
-			{/* html5 elements instead of all divs, but only when semantic */}
-
-			<main className="trailer-explorer">
-				<iframe
-					width="560"
-					height="315"
-					src="https://www.youtube.com/embed/Nt_wyydppg8"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
-				></iframe>
-
-				<nav className="trailer-controls">
-					<button>Previous</button>
-					<button>Add to Watch Later</button>
-					<button>Next</button>
-				</nav>
-			</main>
+			<TrailerExplorer
+				trailers={ trailers.drama }
+			/>
 
 			<aside className="watch-later-list">
 				<h3>Watch Later</h3>

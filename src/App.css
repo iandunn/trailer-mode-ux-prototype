@@ -81,6 +81,8 @@ header p {
 .trailer-controls {
 	text-align: center;
 	margin: 0 0 15px 0;
+
+	/* animation/transition/subtle fade when click prev/next buttons */
 }
 
 
