@@ -12,18 +12,24 @@ li {
 	list-style: none;
 }
 
+p:last-child,
+ul:last-child {
+	margin-bottom: 0;
+}
+
 /*
  * App
  */
 .App {
 	display: grid;
-	grid-template-columns: 7fr 3fr;
-    grid-template-rows: auto;
+	grid-template-columns: 7fr 20px 3fr;
+	grid-template-rows: auto 30px auto 40px auto;
 	grid-template-areas:
-		"header header"
-		"category-list category-list"
-		"trailer-explorer watch-later-list"
-	;
+		"header           header        header"
+		".                .             ."
+		"category-list    category-list category-list"
+		".                .             ."
+		"trailer-explorer none          watch-later-list";
 }
 
 /*
@@ -31,7 +37,6 @@ li {
  */
 header {
 	grid-area: header;
-	padding-bottom: 1em;
 }
 
 header h1 {
@@ -50,7 +55,6 @@ header p {
 
 .category-list {
 	grid-area: category-list;
-	padding-bottom: 2em;
 }
 
 .category-list h2 {
@@ -91,7 +95,6 @@ header p {
  */
 .watch-later-list {
 	grid-area: watch-later-list;
-	padding-left: 20px;
 }
 
 .watch-later-list h3 {
