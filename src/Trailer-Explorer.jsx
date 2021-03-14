@@ -31,7 +31,7 @@ class TrailerExplorer extends React.Component {
 	}
 
 	render() {
-		const { trailers } = this.props;
+		const { trailers, watchLaterHandler } = this.props;
 		const { current } = this.state;
 
 		return (
@@ -41,18 +41,18 @@ class TrailerExplorer extends React.Component {
 				/>
 
 				<TrailerControls
-					current={ current }
-					maximum={ trailers.length - 1 }
-					clickHandler={ this.newTrailer }
+					currentTitle={ trailers[ current ].name }
+					currentPosition={ current }
+					maximumPosition={ trailers.length - 1 }
+					previousNextHandler={ this.newTrailer }
+					watchLaterHandler={ watchLaterHandler }
 				/>
 			</main>
 		);
 	}
 }
 
-function Trailer( props ) {
-	const { trailerId } = props;
-
+function Trailer( { trailerId } ) {
 	return (
 		<iframe
 			width="560"
@@ -64,27 +64,27 @@ function Trailer( props ) {
 		/>
 	);
 
-	// disable picture-n-picture, "more videos" and all the other awful crap cluttering the screen
+	// disable picture-n-picture, "more videos" and all the other awful crap cluttering the player
 	// maybe just find a better place to ebmed videos from. vimeo?
 }
 
-function TrailerControls( props ) {
-	const { clickHandler, current, maximum } = props;
-
+function TrailerControls( { previousNextHandler, currentPosition, currentTitle, maximumPosition, watchLaterHandler } ) {
 	return (
 		<nav className="trailer-controls">
 			<button
-				disabled={ current === 0 }
-				onClick={ () => clickHandler( 'previous' ) }
+				disabled={ currentPosition === 0 }
+				onClick={ () => previousNextHandler( 'previous' ) }
 			>
 				Previous
 			</button>
 
-			<button>Add to Watch Later</button>
+			<button onClick={ () => watchLaterHandler( currentTitle ) }>
+				Add to Watch Later
+			</button>
 
 			<button
-				disabled={ current === maximum }
-				onClick={ () => clickHandler( 'next' ) }
+				disabled={ currentPosition === maximumPosition }
+				onClick={ () => previousNextHandler( 'next' ) }
 			>
 				Next
 			</button>

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import TrailerExplorer from './Trailer-Explorer';
 import './App.css';
 import trailers from './trailers.json';
+import { uniq } from 'lodash';
 
 
 function App() {
 	const [ currentCategory, setCurrentCategory ] = useState( 'drama' );
+	const [ watchList, setWatchList ] = useState( [] );
 
 	return (
 		<div className="App">
@@ -57,31 +59,27 @@ function App() {
 
 			<TrailerExplorer
 				trailers={ trailers[ currentCategory ] }
+				watchLaterHandler={ ( title ) => {
+					watchList.push( title );
+					setWatchList( uniq( watchList ) );
+				} }
 			/>
 
 			<aside className="watch-later-list">
-				{/*
-
-				updates real tiem as add content,
-				can also x to remove.
-				can click on ilnk to jump back to the title of that entry? or to it's title page?
-
-				 */}
-
 				<h3>Watch Later</h3>
 
 				<ul>
-					<li>
-						<a href="">
-							Foo
-						</a>
-					</li>
+					{ watchList.map( ( title ) =>
+						<li key={ title }>
+							<a>
+								{ title }
+								{/*  can click on ilnk to jump back to the title of that entry? or to it's title page? */}
 
-					<li>
-						<a href="">
-							Bar
-						</a>
-					</li>
+								{' '} (<button>x</button>)
+								{/* remove from list when clicked, should probably index by id so direct access isntead of searching entire list */}
+							</a>
+						</li>
+					) }
 				</ul>
 			</aside>
 		</div>
