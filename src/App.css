@@ -1,42 +1,104 @@
+body {
+	padding: 30px;
+	background-color: #282c34;
+	color: white;
+}
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	list-style: none;
+}
+
+/*
+ * App
+ */
 .App {
-  text-align: center;
+	display: grid;
+	grid-template-columns: 7fr 3fr;
+    grid-template-rows: auto;
+	grid-template-areas:
+		"header header"
+		"category-list category-list"
+		"trailer-explorer watch-later-list"
+	;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+ * Header
+ */
+header {
+	grid-area: header;
+	padding-bottom: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header h1 {
+	margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header p {
+	margin-top: 0;
+	font-style: italic;
 }
 
-.App-link {
-  color: #61dafb;
+
+/*
+ * Category List
+ */
+
+.category-list {
+	grid-area: category-list;
+	padding-bottom: 2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category-list h2 {
+	margin: 0;
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+.category-list ul {
+	display: flex;
+	margin-top: 5px;
+}
+
+.category-list li {
+	margin-right: 10px;
+}
+
+.category-list button:disabled {
+
+}
+
+
+/*
+ * Trailer Explorer
+ */
+.trailer-explorer {
+	grid-area: trailer-explorer;
+}
+
+.trailer-controls {
+	text-align: center;
+	margin: 0 0 15px 0;
+}
+
+
+/*
+ * Watch Later Queue
+ */
+.watch-later-list {
+	grid-area: watch-later-list;
+	padding-left: 20px;
+}
+
+.watch-later-list h3 {
+	margin-top: 0;
+}
+
+
+.watch-later-list a {
+	color: white;
+	text-decoration: none;
+	line-height: 1.6em;
 }
