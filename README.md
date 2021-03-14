@@ -2,15 +2,12 @@
 
 A prototype for a better UX while exploring content on video streaming services like Netflix and Apple TV.
 
-_[ todo: screenshot ]_
+[![Screenshot of interface](.github/screenshot.png?raw=true)](.github/screenshot.png?raw=true)
 
-Instead of scrolling through horizontal sliders of thumbnails, and going through lots of clicks to open a , or auto-playing on mouseover (which has lots of false positives and annonyances)
+Often the UI for discovering content involves scrolling through horizontal sliders of thumbnails, and then mousing over an thumbnail for auto-play a tiny video, or having to click to open a new page and clicking to play the video there, and then going back to start over.
 
-user clicks a category of content, and then start playing a list of trailers
-but make it quick and easy to skip to next if don't like it
-and only have to click 1 button to add the show to your watch queue
+That's a bad UX because you have to judge initial interest based on thumbnails, and then deal with unnecessary clicks and annoying behaviors to view the trailer.
 
-able to judge based on the actual content of video rather than the thumbnail
+This experiements with a different approach, where you view trailers one after another, and can press a single button to jump to the next, or to add it to a "watch later" list. That streamlines the flow, and gives a much better sense of whether the video is worth queueing.
 
-psychology concept of suficificers vs maximizers.
-this is better for both, but MUCH better for maximizers
+As a [maximizer](https://www.psychologytoday.com/us/blog/science-choice/201506/satisficing-vs-maximizing), this feels like a much better experience.
